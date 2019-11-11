@@ -1,1 +1,68 @@
-<p>Solicitações</p>
+<div class="container">
+  <form action="">
+    <div class="form-row">
+      <div class="form-group col-md-2">
+        <label for="n-chamado">Nº Chamado</label>
+        <input type="text" class="form-control" id="n-chamado" placeholder="Nº Chamado">
+      </div>
+      <div class="form-group col-md-5">
+        <label for="nome-usuario">Nome Usuário</label>
+        <input type="text" class="form-control" id="nome-usuario" placeholder="Nome do usuário">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="matricula">Matrícula</label>
+        <input type="text" class="form-control" id="matricula" placeholder="Matrícula">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="cargo-usuario">Cargo do Usuário</label>
+        <input type="text" class="form-control" id="cargo-usuario" placeholder="Cargo do Usuário">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-9">
+        <label for="nome-solicitante">Nome Solicitante</label>
+        <input type="text" class="form-control" id="nome-solicitante" placeholder="Nome do Solicitante">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="ar-debito">Ar de Débito</label>
+        <input type="text" class="form-control" id="ar-debito" placeholder="Ar de débito">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="data-solicitacao">Data de Solicitação</label>
+        <div class="input-group">
+          <input class="form-control" id="data-solicitacao" placeholder="dd-mm-yyyy" name="dp" [(ngModel)]="dateModel"
+            ngbDatepicker #d="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button"><i
+                class="fas fa-calendar-alt"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-md-9">
+        <label for="modelo-aparelho">Modelo de aparelho</label>
+        <select class="form-control" id="modelo-aparelho">
+          <option *ngFor="let aparelho of modelosAparelhos">{{aparelho}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-12">
+        <label for="observacoes">Observações</label>
+        <textarea class="form-control" id="observacoes" rows="3"></textarea>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="actions form-group col-12">
+        <button type="button" class="btn btn-primary">Salvar</button>
+        <button type="button" class="btn btn-warning">Atualizar</button>
+      </div>
+    </div>
+  </form>
+
+  <div>
+    <ngx-datatable [rows]="rows" [columns]="columns" class="bootstrap table">
+    </ngx-datatable>
+  </div>
+</div>
