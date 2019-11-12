@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { SolicitacoesComponent } from './solicitacoes/solicitacoes.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -23,7 +22,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    NgxDatatableModule,
     FormsModule
   ],
   providers: [],

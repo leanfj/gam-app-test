@@ -61,8 +61,28 @@
     </div>
   </form>
 
-  <div>
-    <ngx-datatable [rows]="rows" [columns]="columns" class="bootstrap table">
-    </ngx-datatable>
+  <div class="col-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Nº Chamado</th>
+          <th scope="col">Usuário</th>
+          <th scope="col">Mat.</th>
+          <th scope="col">Solicitante</th>
+          <th scope="col">Modelo</th>
+          <th scope="col">Data Solicitação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows; index as i">
+          <td>{{ row.numeroChamado }}</td>
+          <td>{{ row.nomeUsuario }}</td>
+          <td>{{ row.matricula }}</td>
+          <td>{{ row.nomeSolicitante }}</td>
+          <td>{{ row.modeloAparelho }}</td>
+          <td>{{ row.dataSolicitacao }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

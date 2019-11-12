@@ -46,6 +46,30 @@ const DATA = [
     modeloAparelho: "Iphone 8 64GB",
     observacoes: "Usando apareloh backup"
   },
+  {
+    id: 4,
+    numeroChamado: "SR10982",
+    nomeUsuario: "Ana de Tal",
+    matricula: "555355",
+    cargoUsuario: "Engenheiro",
+    nomeSolicitante: "Zé da Coves",
+    arDebito: "398776",
+    dataSolicitacao: "09-11-2019",
+    modeloAparelho: "Iphone 8 64GB",
+    observacoes: "Usando apareloh backup"
+  },
+  {
+    id: 5,
+    numeroChamado: "SR10982",
+    nomeUsuario: "Ana de Tal",
+    matricula: "555355",
+    cargoUsuario: "Engenheiro",
+    nomeSolicitante: "Zé da Coves",
+    arDebito: "398776",
+    dataSolicitacao: "09-11-2019",
+    modeloAparelho: "Iphone 8 64GB",
+    observacoes: "Usando apareloh backup"
+  },
 ];
 
 
@@ -103,13 +127,4 @@ export class SolicitacoesComponent implements OnInit {
   ];
 
   rows = DATA;
-
-  columns = [
-    { prop: "numeroChamado", name: "Nº Chamado" },
-    { prop: "nomeUsuario", name: "Usuário" },
-    { prop: "matricula", name: "Mat." },
-    { prop: "nomeSolicitante", name: "Solicitante" },
-    { prop: "modeloAparelho", name: "Modelo" },
-    { prop: "dataSolicitacao", name: "Data Solicitação" },
-  ]
 }
