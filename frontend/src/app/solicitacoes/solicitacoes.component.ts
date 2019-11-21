@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable, Directive, EventEmitter, Input, Output, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 
 import { NgbDatepickerI18n, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
@@ -127,4 +127,8 @@ export class SolicitacoesComponent implements OnInit {
   ];
 
   rows = DATA;
+
+  onSubmit(formulario) {
+    console.log(formulario)
+  }
 }
