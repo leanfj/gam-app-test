@@ -126,9 +126,22 @@ export class SolicitacoesComponent implements OnInit {
     "Galaxy S10e"
   ];
 
+  planosDados: string[] = [
+    "Smartphone Tipo 1",
+    "Smartphone Tipo 2",
+    "Smartphone Tipo 3"
+  ]
+
   rows = DATA;
 
   onSubmit(formulario) {
     console.log(formulario)
+  }
+
+  validacaoCampo(campo) {
+    return {
+      'is-valid': campo.valid && campo.touched,
+      'is-invalid': campo.invalid && campo.touched
+    }
   }
 }

@@ -3,77 +3,61 @@
     <div class="form-group col-md-2">
       <label for="n-chamado">Nº Chamado</label>
       <input required type="text" class="form-control " id="n-chamado" placeholder="Nº Chamado" name="numeroChamado"
-        ngModel #numeroChamado="ngModel" [ngClass]="{
-          'is-valid': numeroChamado.valid && numeroChamado.touched,
-          'is-invalid': numeroChamado.invalid && numeroChamado.touched
-        }">
+        ngModel #numeroChamado="ngModel" [ngClass]="validacaoCampo(numeroChamado)">
     </div>
     <div class="form-group col-md-5">
       <label for="nome-usuario">Nome Usuário</label>
       <input required type="text" class="form-control" id="nome-usuario" placeholder="Nome do usuário"
-        name="nomeUsuario" ngModel #nomeUsuario="ngModel" [ngClass]="{
-          'is-valid': nomeUsuario.valid && nomeUsuario.touched,
-          'is-invalid': nomeUsuario.invalid && nomeUsuario.touched
-        }">
+        name="nomeUsuario" ngModel #nomeUsuario="ngModel" [ngClass]="validacaoCampo(nomeUsuario)">
     </div>
     <div class="form-group col-md-2">
       <label for="matricula">Matrícula</label>
       <input required type="text" class="form-control" id="matricula" placeholder="Matrícula" name="matricula" ngModel
-        #matricula="ngModel" [ngClass]="{
-        'is-valid': matricula.valid && matricula.touched,
-        'is-invalid': matricula.invalid && matricula.touched
-      }">
+        #matricula="ngModel" [ngClass]="validacaoCampo(matricula)">
     </div>
     <div class="form-group col-md-3">
       <label for="cargo-usuario">Cargo do Usuário</label>
       <input required type="text" class="form-control" id="cargo-usuario" placeholder="Cargo do Usuário"
-        name="cargoUsuario" ngModel #cargoUsuario="ngModel" [ngClass]="{
-          'is-valid': cargoUsuario.valid && cargoUsuario.touched,
-          'is-invalid': cargoUsuario.invalid && cargoUsuario.touched
-        }">
+        name="cargoUsuario" ngModel #cargoUsuario="ngModel" [ngClass]="validacaoCampo(cargoUsuario)">
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-9">
       <label for="nome-solicitante">Nome Solicitante</label>
       <input required type="text" class="form-control" id="nome-solicitante" placeholder="Nome do Solicitante"
-        name="nomeSolicitante" ngModel #nomeSolicitante="ngModel" [ngClass]="{
-          'is-valid': nomeSolicitante.valid && nomeSolicitante.touched,
-          'is-invalid': nomeSolicitante.invalid && nomeSolicitante.touched
-        }">
+        name="nomeSolicitante" ngModel #nomeSolicitante="ngModel" [ngClass]="validacaoCampo(nomeSolicitante)">
     </div>
     <div class="form-group col-md-3">
       <label for="ar-debito">Ar de Débito</label>
       <input required type="text" class="form-control" id="ar-debito" placeholder="Ar de débito" name="arDebito" ngModel
-        #arDebito="ngModel" [ngClass]="{
-          'is-valid': arDebito.valid && arDebito.touched,
-          'is-invalid': arDebito.invalid && arDebito.touched
-        }">
+        #arDebito="ngModel" [ngClass]="validacaoCampo(arDebito)">
     </div>
   </div>
   <div class="form-row">
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-2">
       <label for="data-solicitacao">Data de Solicitação</label>
       <div class="input-group">
         <input required class="form-control" id="data-solicitacao" placeholder="dd-mm-yyyy" name="dataSolicitacao"
-          [(ngModel)]="dateModel" ngbDatepicker #d="ngbDatepicker" ngModel #dataSolicitacao="ngModel" [ngClass]="{
-            'is-valid': dataSolicitacao.valid && dataSolicitacao.touched,
-            'is-invalid': dataSolicitacao.invalid && dataSolicitacao.touched
-          }">
+          [(ngModel)]="dateModel" ngbDatepicker #d="ngbDatepicker" ngModel #dataSolicitacao="ngModel"
+          [ngClass]="validacaoCampo(dataSolicitacao)">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button"><i
               class="fas fa-calendar-alt"></i></button>
         </div>
       </div>
     </div>
-    <div class="form-group col-md-9">
+    <div class="form-group col-md-6">
       <label for="modelo-aparelho">Modelo de aparelho</label>
       <select required class="form-control" id="modelo-aparelho" name="modeloAparelho" ngModel #modeloAparelho="ngModel"
-        [ngClass]="{
-        'is-valid': modeloAparelho.valid && modeloAparelho.touched,
-        'is-invalid': modeloAparelho.invalid && modeloAparelho.touched
-      }">
+        [ngClass]="validacaoCampo(modeloAparelho)">
         <option *ngFor="let aparelho of modelosAparelhos">{{aparelho}}</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="plano-dados">Plano de dados</label>
+      <select required class="form-control" id="plano-dados" name="planoDados" ngModel #planoDados="ngModel"
+        [ngClass]="validacaoCampo(planoDados)">
+        <option *ngFor="let plano of planosDados">{{plano}}</option>
       </select>
     </div>
   </div>
