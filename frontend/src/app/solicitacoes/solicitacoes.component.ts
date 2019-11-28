@@ -1,4 +1,6 @@
 import { Component, OnInit, Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { map } from "rxjs/operators";
 
 import { NgbDatepickerI18n, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
@@ -109,7 +111,7 @@ export class CustomDatepickerI18n extends NgbDatepickerI18n {
 
 export class SolicitacoesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
   }
@@ -136,6 +138,8 @@ export class SolicitacoesComponent implements OnInit {
 
   onSubmit(formulario) {
     console.log(formulario)
+
+    this.httpClient.post('https://httpbin.org/get', JSON.stringify(formulario.value)).subscribe(data => console.log(data))
   }
 
   validacaoCampo(campo) {
