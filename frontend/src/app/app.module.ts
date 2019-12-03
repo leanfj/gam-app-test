@@ -11,11 +11,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SolicitacoesComponent } from './solicitacoes/solicitacoes.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SolicitacoesDatadrivenComponent } from './solicitacoes-datadriven/solicitacoes-datadriven.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SolicitacoesComponent,
+    SolicitacoesDatadrivenComponent,
     PageNotFoundComponent,
     DashboardComponent
   ],
