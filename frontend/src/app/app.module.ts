@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, FormBuilder, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,10 +26,11 @@ import { SolicitacoesDatadrivenComponent } from './solicitacoes-datadriven/solic
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

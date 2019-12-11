@@ -1,1 +1,111 @@
-<p>solicitacoes-datadriven works!</p>
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="n-chamado">Nº Chamado</label>
+      <input type="text" class="form-control " id="n-chamado" placeholder="Nº Chamado" formControlName="numeroChamado"
+        [ngClass]="validacaoCampo('numeroChamado')">
+    </div>
+    <div class="form-group col-md-5">
+      <label for="nome-usuario">Nome Usuário</label>
+      <input type="text" class="form-control" id="nome-usuario" placeholder="Nome do usuário"
+        formControlName="nomeUsuario" [ngClass]="validacaoCampo('nomeUsuario')">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="matricula">Matrícula</label>
+      <input type="text" class="form-control" id="matricula" placeholder="Matrícula" formControlName="matricula"
+        [ngClass]="validacaoCampo('matricula')">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="cargo-usuario">Cargo do Usuário</label>
+      <input type="text" class="form-control" id="cargo-usuario" placeholder="Cargo do Usuário"
+        formControlName="cargoUsuario" [ngClass]="validacaoCampo('cargoUsuario')">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-9">
+      <label for="nome-solicitante">Nome Solicitante</label>
+      <input type="text" class="form-control" id="nome-solicitante" placeholder="Nome do Solicitante"
+        formControlName="nomeSolicitante" [ngClass]="validacaoCampo('nomeSolicitante')">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="ar-debito">Ar de Débito</label>
+      <input type="text" class="form-control" id="ar-debito" placeholder="Ar de débito" formControlName="arDebito"
+        [ngClass]="validacaoCampo('arDebito')">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="data-solicitacao">Data de Solicitação</label>
+      <div class="input-group">
+        <input class="form-control" id="data-solicitacao" placeholder="dd-mm-yyyy" formControlName="dataSolicitacao"
+          [(ngModel)]="dateModel" ngbDatepicker #d="ngbDatepicker" [ngClass]="validacaoCampo('dataSolicitacao')" today>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button"><i
+              class="fas fa-calendar-alt"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="modelo-aparelho">Modelo de aparelho</label>
+      <select class="form-control" id="modelo-aparelho" formControlName="modeloAparelho"
+        [ngClass]="validacaoCampo('modeloAparelho')">
+        <option *ngFor="let modelo of modelosAparelhos" [ngValue]="modelo">{{modelo}}</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="plano-dados">Plano de dados</label>
+      <select class="form-control" id="plano-dados" formControlName="planoDados"
+        [ngClass]="validacaoCampo('planoDados')">
+        <option *ngFor="let plano of planosDados" [ngValue]="plano">{{plano}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-12">
+      <label for="observacoes">Observações</label>
+      <textarea class="form-control" id="observacoes" rows="3" formControlName="observacoes"></textarea>
+    </div>
+
+    <code>
+      Campos Form
+      {{formulario.value | json}}
+    </code>
+    <code>
+      Form Status
+      {{ formulario.valid | json}}
+    </code>
+  </div>
+  <div class="form-row">
+    <div class="actions form-group col-12">
+      <button type="submit" class="btn btn-primary" (click)="onSubmit(formulario)"
+        [disabled]="!formulario.valid">Salvar</button>
+      <button type="button" class="btn btn-warning">Atualizar</button>
+      <button type="button" class="btn btn-danger" (click)="limpaFormulario()">Limpar</button>
+    </div>
+  </div>
+</form>
+
+<div class="col-12">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nº Chamado</th>
+        <th scope="col">Usuário</th>
+        <th scope="col">Mat.</th>
+        <th scope="col">Solicitante</th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Data Solicitação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of rows; index as i">
+        <td>{{ row.numeroChamado }}</td>
+        <td>{{ row.nomeUsuario }}</td>
+        <td>{{ row.matricula }}</td>
+        <td>{{ row.nomeSolicitante }}</td>
+        <td>{{ row.modeloAparelho }}</td>
+        <td>{{ row.dataSolicitacao }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

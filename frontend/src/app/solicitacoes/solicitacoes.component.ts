@@ -74,7 +74,7 @@ export class SolicitacoesComponent implements OnInit {
   rows = mockSolicitacoes;
 
   onSubmit(formulario) {
-    this.httpClient.post('https://httpbin.org/get', JSON.stringify(formulario.value)).subscribe(data => console.log(data))
+    console.log(formulario.value)
   }
 
   validacaoCampo(campo) {
