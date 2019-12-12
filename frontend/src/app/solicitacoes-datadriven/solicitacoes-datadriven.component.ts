@@ -76,7 +76,7 @@ export class SolicitacoesDatadrivenComponent implements OnInit {
 
   dateModel: NgbDateStruct;
 
-  modelosAparelhos: any = [
+  modelosAparelhos: string[] = [
     "Iphone 8 64GB",
     "Iphone 7 32GB",
     "Iphone XR 128GB",
@@ -94,11 +94,15 @@ export class SolicitacoesDatadrivenComponent implements OnInit {
 
   rows = mockSolicitacoes;
 
-  onSubmit() {
-    console.log(this.formulario)
+  onSubmit(formulario) {
+    this.httpClient.post('https://httpbin.org/post', formulario.value).subscribe((data) => {
+      console.log(data)
+      this.limpaFormulario()
+    })
   }
 
   limpaFormulario() {
+
     this.formulario.reset();
   }
 
