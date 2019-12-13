@@ -94,11 +94,19 @@ export class SolicitacoesDatadrivenComponent implements OnInit {
 
   rows = mockSolicitacoes;
 
-  onSubmit(formulario) {
-    this.httpClient.post('https://httpbin.org/post', formulario.value).subscribe((data) => {
-      console.log(data)
-      this.limpaFormulario()
-    })
+  onSubmit() {
+    if (this.formulario.valid) {
+      this.httpClient.post('https://httpbin.org/post', this.formulario.value).subscribe((data) => {
+        console.log(data)
+        this.limpaFormulario()
+      })
+
+    } else {
+      Object.keys(this.formulario.controls).forEach(campo => {
+        const controle = this.formulario.get(campo);
+        controle.markAsTouched();
+      })
+    }
   }
 
   limpaFormulario() {
