@@ -12,7 +12,7 @@ import { SolicitacoesComponent } from './solicitacoes/solicitacoes.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SolicitacoesDatadrivenComponent } from './solicitacoes-datadriven/solicitacoes-datadriven.component';
-import { DebugComponent } from './shared/debug/debug.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,6 @@ import { DebugComponent } from './shared/debug/debug.component';
     SolicitacoesDatadrivenComponent,
     PageNotFoundComponent,
     DashboardComponent,
-    DebugComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +29,7 @@ import { DebugComponent } from './shared/debug/debug.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-
+    SharedModule
   ],
   providers: [FormBuilder],
   bootstrap: [AppComponent]

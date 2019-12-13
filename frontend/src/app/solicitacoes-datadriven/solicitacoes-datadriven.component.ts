@@ -5,6 +5,8 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { NgbDatepickerI18n, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 import { mockSolicitacoes } from "../mockData";
+import { ModelosAparelhosService } from '../shared/service/modelos-aparelhos.service';
+import { PlanosDadosService } from '../shared/service/planos-dados.service';
 
 const I18N_VALUES = {
   'pt-br': {
@@ -51,8 +53,12 @@ export class SolicitacoesDatadrivenComponent implements OnInit {
   formulario: FormGroup;
 
 
-  constructor(private httpClient: HttpClient, private formBuilder: FormBuilder) {
-
+  constructor(
+    private httpClient: HttpClient,
+    private formBuilder: FormBuilder,
+    private modelosAparelhos: ModelosAparelhosService,
+    private planoDados: PlanosDadosService
+  ) {
   }
 
   ngOnInit() {
@@ -76,21 +82,8 @@ export class SolicitacoesDatadrivenComponent implements OnInit {
 
   dateModel: NgbDateStruct;
 
-  modelosAparelhos: string[] = [
-    "Iphone 8 64GB",
-    "Iphone 7 32GB",
-    "Iphone XR 128GB",
-    "Iphone XS 256GB",
-    "Galaxy A50",
-    "Galaxy S10",
-    "Galaxy S10e"
-  ];
-
-  planosDados: string[] = [
-    "Smartphone Tipo 1",
-    "Smartphone Tipo 2",
-    "Smartphone Tipo 3"
-  ]
+  aparelhos: string[] = this.modelosAparelhos.getModelosAparelhos();
+  planos: string[] = this.planoDados.getPlanoDados();
 
   rows = mockSolicitacoes;
 
