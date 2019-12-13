@@ -12,6 +12,7 @@ import { SolicitacoesComponent } from './solicitacoes/solicitacoes.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SolicitacoesDatadrivenComponent } from './solicitacoes-datadriven/solicitacoes-datadriven.component';
+import { DebugComponent } from './shared/debug/debug.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SolicitacoesDatadrivenComponent } from './solicitacoes-datadriven/solic
     SolicitacoesComponent,
     SolicitacoesDatadrivenComponent,
     PageNotFoundComponent,
-    DashboardComponent
+    DashboardComponent,
+    DebugComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,7 @@ import { SolicitacoesDatadrivenComponent } from './solicitacoes-datadriven/solic
     NgbModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
 
   ],
   providers: [FormBuilder],
